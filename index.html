@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07000e">
+<title>Happy Birthday Tabassum Noor 💖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--bg-dark:#07000e;--primary-glow:rgba(236,72,153,.6);--secondary-glow:rgba(168,85,247,.4)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,sans-serif;background:var(--bg-dark);color:#fff;overflow-x:hidden}
+h1,h2,h3,.font-serif{font-family:'Playfair Display',serif}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg-dark)}::-webkit-scrollbar-thumb{background:#6b21a8;border-radius:10px}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-15px) rotate(2deg)}}
+@keyframes float-slow{0%,100%{transform:translateY(0)}50%{transform:translateY(-25px)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 15px var(--primary-glow)}50%{box-shadow:0 0 30px var(--primary-glow),0 0 10px var(--secondary-glow)}}
+@keyframes text-glow{0%,100%{text-shadow:0 0 10px rgba(255,255,255,.8),0 0 20px #ec4899}50%{text-shadow:0 0 20px rgba(255,255,255,.9),0 0 40px #ec4899,0 0 10px #a855f7}}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}
+@keyframes fade-in-up{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+.animate-float{animation:float 6s ease-in-out infinite}.animate-float-slow{animation:float-slow 8s ease-in-out infinite}.animate-pulse-glow{animation:pulse-glow 3s infinite}.animate-text-glow{animation:text-glow 3s infinite}.animate-fade-in-up{animation:fade-in-up 1s cubic-bezier(.4,0,.2,1) forwards}
+.glass-card{background:rgba(30,10,40,.48);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(236,72,153,.22);box-shadow:0 8px 32px rgba(0,0,0,.37)}
+.particle{position:absolute;border-radius:50%;background:radial-gradient(circle,#fff,rgba(255,255,255,0));opacity:.3;pointer-events:none}
+.bg-scene{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;background:linear-gradient(to bottom,#07000e,#1a0033 50%,#07000e);opacity:.9}
+.btn{cursor:pointer;transition:.25s}.btn:hover{transform:scale(1.04)}.hidden-screen{display:none!important}
+.confetti-piece{position:absolute;top:-5vh;width:10px;height:10px;animation:fall 3s linear forwards}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="bg-scene" id="particles"></div>
+<div id="confetti" class="fixed inset-0 pointer-events-none z-[100] overflow-hidden"></div>
+
+<section id="intro" class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden text-center px-6">
+ <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+  <h2 class="text-pink-300/80 tracking-widest uppercase text-sm md:text-base font-semibold mb-4 animate-fade-in-up">Someone Special Has a Birthday...</h2>
+  <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-text-glow">It's Tabassum Noor's<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-500">Special Day! 💖</span></h1>
+  <p class="text-gray-300 text-lg md:text-xl mb-12 font-light">A little surprise, made just for you.</p>
+  <button onclick="startSurprise()" class="btn px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full font-semibold text-lg md:text-xl animate-pulse-glow">Open Your Birthday Surprise ✨</button>
+ </div>
+</section>
+
+<div id="main" class="hidden-screen relative z-10">
+ <button id="musicToggle" onclick="toggleMusic()" aria-label="Toggle music" class="fixed top-5 right-5 z-50 p-3 rounded-full glass-card text-pink-300">♫ <span id="musicLabel">OFF</span></button>
+ <main class="max-w-6xl mx-auto px-4 py-16 flex flex-col gap-28">
+  <section class="min-h-[75vh] flex flex-col items-center justify-center text-center">
+   <div class="mb-8 animate-float text-7xl">🎂</div>
+   <h2 class="text-pink-300 uppercase tracking-[.25em] text-sm md:text-base font-semibold mb-4" id="ageHeading">Happy Birthday</h2>
+   <h1 class="text-4xl md:text-7xl font-bold mb-6 leading-tight animate-text-glow">TABASSUM NOOR <span class="inline-block animate-float">💖🌸</span></h1>
+   <p class="text-xl md:text-2xl text-gray-200 max-w-2xl font-light leading-relaxed">“Today is a special day for someone truly special.”</p>
+   <div class="mt-10 glass-card px-8 py-4 rounded-full text-2xl md:text-3xl font-serif text-pink-200">25 October</div>
+  </section>
+
+  <section class="flex flex-col items-center text-center">
+   <h3 id="countTitle" class="text-2xl md:text-4xl font-serif mb-10 text-purple-200">Your special day is almost here! 🎂</h3>
+   <div id="countdown" class="flex flex-wrap justify-center gap-4 md:gap-8">
+    <div class="glass-card w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center rounded-2xl"><span id="days" class="text-3xl md:text-5xl font-bold font-serif">00</span><span class="text-xs md:text-sm text-pink-300 uppercase tracking-wider">Days</span></div>
+    <div class="glass-card w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center rounded-2xl"><span id="hours" class="text-3xl md:text-5xl font-bold font-serif">00</span><span class="text-xs md:text-sm text-pink-300 uppercase tracking-wider">Hours</span></div>
+    <div class="glass-card w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center rounded-2xl"><span id="minutes" class="text-3xl md:text-5xl font-bold font-serif">00</span><span class="text-xs md:text-sm text-pink-300 uppercase tracking-wider">Minutes</span></div>
+    <div class="glass-card w-24 h-24 md:w-32 md:h-32 flex flex-col items-center justify-center rounded-2xl"><span id="seconds" class="text-3xl md:text-5xl font-bold font-serif">00</span><span class="text-xs md:text-sm text-pink-300 uppercase tracking-wider">Seconds</span></div>
+   </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto w-full">
+   <div class="glass-card w-full rounded-3xl p-7 md:p-12 relative overflow-hidden">
+    <div id="letterClosed" class="flex flex-col items-center text-center py-10">
+     <div class="text-6xl text-pink-400 mb-6 animate-float">💌</div><h3 class="text-2xl md:text-3xl font-serif mb-8">A Special Birthday Letter for You 💌</h3>
+     <button onclick="openLetter()" class="btn px-8 py-3 bg-white/10 hover:bg-white/20 border border-pink-500/50 rounded-full text-pink-200">Read Your Birthday Letter</button>
+    </div>
+    <div id="letterContent" class="hidden-screen animate-fade-in-up relative z-10">
+     <div class="text-pink-500/70 text-3xl mb-4">♥</div>
+     <div class="font-serif text-lg md:text-xl leading-relaxed text-gray-100 space-y-6 px-1">
+      <p class="font-semibold text-2xl text-pink-300">💖 Happy Birthday, Tabasum Noor! 🎂🌸</p>
+      <p>May Allah bless you with endless happiness, success, good health, and peace. May all your dreams come true, your worries turn into smiles, and your life be filled with beautiful moments. 🤲🏻❤️</p>
+      <p>Always keep smiling and stay blessed! ✨</p><p class="text-pink-300">Happy Birthday once again! 🎉🎁💗</p>
+     </div>
+     <div class="mt-10 flex flex-wrap gap-4 justify-center">
+      <button onclick="copyLetter()" id="copyBtn" class="btn px-6 py-2 bg-pink-500/20 hover:bg-pink-500/40 rounded-full text-pink-200 border border-pink-500/30">▢ Copy Letter</button>
+      <button onclick="closeLetter()" class="btn px-6 py-2 bg-white/5 rounded-full text-gray-300 border border-white/10">Close Letter</button>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="flex flex-col items-center">
+   <h3 class="text-3xl md:text-4xl font-serif mb-12 text-center">Beautiful Wishes for Your New Year of Life ✨</h3>
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl w-full">
+    <div class="glass-card p-8 rounded-2xl transition hover:-translate-y-2"><h4 class="text-xl font-serif text-pink-300 mb-4">Happiness 💖</h4><p class="text-gray-300 leading-relaxed">May your days always be filled with happiness, laughter, and beautiful moments.</p></div>
+    <div class="glass-card p-8 rounded-2xl transition hover:-translate-y-2"><h4 class="text-xl font-serif text-pink-300 mb-4">Success 🌟</h4><p class="text-gray-300 leading-relaxed">May Allah guide you toward success and open new doors of opportunity for you.</p></div>
+    <div class="glass-card p-8 rounded-2xl transition hover:-translate-y-2"><h4 class="text-xl font-serif text-pink-300 mb-4">Health and Peace 🤲🏻</h4><p class="text-gray-300 leading-relaxed">May Allah bless you with good health, peace of mind, and countless blessings.</p></div>
+    <div class="glass-card p-8 rounded-2xl transition hover:-translate-y-2"><h4 class="text-xl font-serif text-pink-300 mb-4">Dreams Come True 🎀</h4><p class="text-gray-300 leading-relaxed">May every sincere dream in your heart find its way toward becoming reality.</p></div>
+   </div>
+  </section>
+
+  <section class="flex flex-col items-center justify-center min-h-[55vh] text-center">
+   <h3 class="text-3xl md:text-4xl font-serif mb-12">One More Little Surprise for You 🎁</h3>
+   <div id="giftClosed" class="flex flex-col items-center">
+    <button onclick="openGift()" aria-label="Open gift" class="btn text-8xl md:text-9xl animate-float mb-8">🎁</button>
+    <button onclick="openGift()" class="btn px-8 py-3 bg-pink-600 hover:bg-pink-500 rounded-full font-semibold shadow-lg">Open Your Gift</button>
+   </div>
+   <div id="giftContent" class="hidden-screen glass-card p-8 md:p-12 rounded-3xl max-w-2xl border border-pink-400/50 animate-fade-in-up">
+    <div class="text-5xl mb-6">✨</div><p class="text-xl md:text-2xl font-serif leading-relaxed mb-10">“May this new chapter of your life bring you more happiness, beautiful opportunities, peace, and reasons to smile. Keep shining and stay blessed! 💖✨”</p>
+    <button onclick="celebrateAgain()" class="btn px-8 py-3 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full font-semibold">Celebrate Again 🎉</button>
+   </div>
+  </section>
+
+  <section class="flex flex-col items-center text-center pt-16 pb-20 border-t border-white/10">
+   <div class="text-5xl text-pink-500 mb-8 animate-float">♥</div><h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">Once Again, Happy Birthday,<br class="md:hidden"> Tabassum Noor! 💖🎂</h2>
+   <p class="text-lg md:text-xl text-gray-300 max-w-2xl mb-12 font-light">“May Allah always protect you, bless your life, and fill your future with happiness and success. Keep smiling and stay blessed. 🌸🤲🏻”</p>
+   <button onclick="replay()" class="btn px-8 py-4 border border-pink-500/50 rounded-full text-pink-300 hover:bg-pink-500/10">Replay Your Birthday Surprise</button>
+  </section>
+  <section class="flex flex-col items-center text-center pt-6 pb-32">
+   <span class="text-pink-400/70 text-sm tracking-[.35em] uppercase mb-6">And one last thing...</span><h2 class="text-7xl md:text-9xl font-bold font-serif leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-pink-200 to-purple-800 animate-text-glow">SORRY</h2>
+   <p class="mt-8 text-gray-300 text-lg md:text-xl max-w-2xl font-light px-4">For any mistakes, shortcomings, or times I might not have been at my best. You truly deserve the world. 💖</p>
+  </section>
+ </main>
+</div>
+<script>
+const birthdayYear=2006;
+function addParticles(){const root=document.getElementById('particles');for(let i=0;i<45;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'vw';p.style.top=Math.random()*100+'vh';const size=Math.random()*4+1;p.style.width=size+'px';p.style.height=size+'px';p.style.animation=`float-slow ${10+Math.random()*10}s ease-in-out ${Math.random()*5}s infinite`;root.appendChild(p)}}
+function confetti(duration=3500){const root=document.getElementById('confetti');root.innerHTML='';const colors=['#ec4899','#a855f7','#fbcfe8','#ffd700','#fff'];for(let i=0;i<100;i++){const p=document.createElement('div');p.className='confetti-piece';p.style.left=Math.random()*100+'vw';p.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];p.style.animationDuration=(2+Math.random()*3)+'s';p.style.animationDelay=Math.random()*1.5+'s';p.style.borderRadius=Math.random()>.5?'50%':'2px';p.style.boxShadow=`0 0 5px ${p.style.backgroundColor}`;root.appendChild(p)}setTimeout(()=>root.innerHTML='',duration)}
+function startSurprise(){document.getElementById('intro').classList.add('hidden-screen');document.getElementById('main').classList.remove('hidden-screen');window.scrollTo(0,0);confetti(3500)}
+function updateCountdown(){const now=new Date();let target=new Date(now.getFullYear(),9,25,0,0,0);const isToday=now.getMonth()===9&&now.getDate()===25;if(!isToday&&now>target)target=new Date(now.getFullYear()+1,9,25,0,0,0);const diff=Math.max(0,target-now);document.getElementById('ageHeading').textContent=`Happy ${now.getFullYear()-birthdayYear}th Birthday`;if(isToday){document.getElementById('countTitle').textContent="It's Your Birthday! 🎉💖";document.getElementById('countdown').classList.add('hidden-screen')}else{document.getElementById('countTitle').textContent="Your special day is almost here! 🎂";document.getElementById('countdown').classList.remove('hidden-screen');document.getElementById('days').textContent=String(Math.floor(diff/86400000)).padStart(2,'0');document.getElementById('hours').textContent=String(Math.floor(diff/3600000)%24).padStart(2,'0');document.getElementById('minutes').textContent=String(Math.floor(diff/60000)%60).padStart(2,'0');document.getElementById('seconds').textContent=String(Math.floor(diff/1000)%60).padStart(2,'0')}}
+function openLetter(){document.getElementById('letterClosed').classList.add('hidden-screen');document.getElementById('letterContent').classList.remove('hidden-screen')}
+function closeLetter(){document.getElementById('letterContent').classList.add('hidden-screen');document.getElementById('letterClosed').classList.remove('hidden-screen')}
+async function copyLetter(){const text='💖 Happy Birthday, Tabasum Noor! 🎂🌸\n\nMay Allah bless you with endless happiness, success, good health, and peace. May all your dreams come true, your worries turn into smiles, and your life be filled with beautiful moments. 🤲🏻❤️\n\nAlways keep smiling and stay blessed! ✨\n\nHappy Birthday once again! 🎉🎁💗';const btn=document.getElementById('copyBtn');try{await navigator.clipboard.writeText(text);btn.textContent='✓ Copied!'}catch(e){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();btn.textContent='✓ Copied!'}setTimeout(()=>btn.textContent='▢ Copy Letter',2500)}
+function openGift(){document.getElementById('giftClosed').classList.add('hidden-screen');document.getElementById('giftContent').classList.remove('hidden-screen');setTimeout(()=>confetti(5000),300)}
+function celebrateAgain(){document.getElementById('giftContent').classList.add('hidden-screen');document.getElementById('giftClosed').classList.remove('hidden-screen');confetti(3000)}
+function replay(){window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>{document.getElementById('main').classList.add('hidden-screen');document.getElementById('intro').classList.remove('hidden-screen');closeLetter();document.getElementById('giftContent').classList.add('hidden-screen');document.getElementById('giftClosed').classList.remove('hidden-screen')},450)}
+let audioCtx=null,oscillators=[],musicOn=false;
+function toggleMusic(){musicOn=!musicOn;document.getElementById('musicLabel').textContent=musicOn?'ON':'OFF';document.getElementById('musicToggle').style.color=musicOn?'#f9a8d4':'#f9a8d4';if(musicOn){try{audioCtx=new(window.AudioContext||window.webkitAudioContext)();const notes=[523.25,659.25,783.99,659.25];let idx=0;function playNote(){if(!musicOn||!audioCtx)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='sine';o.frequency.value=notes[idx++%notes.length];g.gain.setValueAtTime(.0001,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.035,audioCtx.currentTime+.08);g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.45);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+.5);setTimeout(playNote,500)}playNote()}catch(e){}}else if(audioCtx){audioCtx.close();audioCtx=null}}
+addParticles();updateCountdown();setInterval(updateCountdown,1000);
+</script>
+</body>
+</html>
